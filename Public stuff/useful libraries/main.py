@@ -43,17 +43,17 @@ def DoBlue():
 
 
 def DoTeal():
-    pass
+    print("teal is the color of calm")
 
 
 
 def DoGreen():
-    pass
+    print("green is the color of growth")
 
 
 
 def DoPurple():
-    pass
+    print("purple is the color of nobility")
 
 
 
