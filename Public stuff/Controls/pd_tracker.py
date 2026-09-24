@@ -40,8 +40,8 @@ from lelib import singleMotor, doubleMotor
 # pick out specific motors from several of the same type nearby.
 # Valid colors: le.LEGO_COLOR_RED, _YELLOW, _BLUE, _GREEN, _PURPLE,
 # _MAGENTA, _AZURE, _ORANGE.
-CARD_COLOR = None
-CARD_SERIAL = None
+CARD_COLOR = le.LEGO_COLOR_YELLOW
+CARD_SERIAL = "0994"
 
 # Which side of the Double Motor tracks the target. The other side is left
 # unpowered -- this is a one-degree-of-freedom demo, matching the Single
@@ -209,3 +209,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

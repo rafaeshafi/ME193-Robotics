@@ -116,33 +116,68 @@ def DoUnknownColor():
 
 
 
+# Tank drive: each stick drives its own wheel. Counterclockwise is "forward"
+# for both motors, matching lelib's run_left()/run_right().
+STICK_SPEED = 50
+
+# Whether each wheel is currently being driven by its stick. Released only
+# stops a wheel on the transition out of up/down, so an idle stick doesn't
+# cancel a color behavior (like Orange/Azure) on every poll.
+left_driving = False
+right_driving = False
+
+
 def DoLeftUp():
-    pass
+    """Left stick up: left wheel forward."""
+    global left_driving
+    robot.set_speed_left(STICK_SPEED)
+    robot.motor_run(direction=le.MOTOR_MOVE_DIRECTION_COUNTERCLOCKWISE, motor=le.MOTOR_LEFT)
+    left_driving = True
 
 
 
 def DoLeftDown():
-    pass
+    """Left stick down: left wheel backward."""
+    global left_driving
+    robot.set_speed_left(STICK_SPEED)
+    robot.motor_run(direction=le.MOTOR_MOVE_DIRECTION_CLOCKWISE, motor=le.MOTOR_LEFT)
+    left_driving = True
 
 
 
 def DoLeftReleased():
-    pass
+    """Left stick centered: stop the left wheel (once, on release)."""
+    global left_driving
+    if left_driving:
+        robot.motor_stop(motor=le.MOTOR_LEFT)
+        left_driving = False
 
 
 
 def DoRightUp():
-    pass
+    """Right stick up: right wheel forward."""
+    global right_driving
+    robot.set_speed_right(STICK_SPEED)
+    robot.motor_run(direction=le.MOTOR_MOVE_DIRECTION_COUNTERCLOCKWISE, motor=le.MOTOR_RIGHT)
+    right_driving = True
 
 
 
 def DoRightDown():
-    pass
+    """Right stick down: right wheel backward."""
+    global right_driving
+    robot.set_speed_right(STICK_SPEED)
+    robot.motor_run(direction=le.MOTOR_MOVE_DIRECTION_CLOCKWISE, motor=le.MOTOR_RIGHT)
+    right_driving = True
 
 
 
 def DoRightReleased():
-    pass
+    """Right stick centered: stop the right wheel (once, on release)."""
+    global right_driving
+    if right_driving:
+        robot.motor_stop(motor=le.MOTOR_RIGHT)
+        right_driving = False
 
 
 
