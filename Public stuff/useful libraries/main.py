@@ -89,27 +89,27 @@ def DoBlue():
 
 
 def DoTeal():
-    pass
+    print("teal")
 
 
 
 def DoGreen():
-    pass
+    print("green")
 
 
 
 def DoPurple():
-    pass
+    print("purple")
 
 
 
 def DoWhite():
-    pass
+    print("white")
 
 
 
 def DoMagenta():
-    pass
+    print("magenta")
 
 
 
