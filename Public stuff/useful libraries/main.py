@@ -60,10 +60,24 @@ def DoYellow():
     root.mainloop()
 
 
-
 def DoBlue():
     print("blue")
-
+    print(r"""
+          /\
+          ||
+          ||
+          ||
+          ||
+          ||
+          ||
+          ||
+          ||
+    o=====||=====o
+          ##
+          ##
+          ##
+          ()
+""")
 
 
 def DoTeal():
