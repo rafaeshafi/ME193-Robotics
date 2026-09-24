@@ -86,7 +86,13 @@ def DoAzure():
 
 
 def DoNoColor():
-    pass
+    """Nothing under the sensor: stop.
+
+    This fires on every poll where no card is present, so it is what makes
+    the robot halt the moment you pull a color card away -- a dead-man
+    switch rather than an error case.
+    """
+    robot.stop()
 
 
 
