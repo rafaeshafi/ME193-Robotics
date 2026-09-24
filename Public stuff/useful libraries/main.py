@@ -6,6 +6,8 @@ Then copy lelib.py from the SimpleLE repo into this project's folder.
 """
 
 import time
+import tkinter as tk
+import webbrowser
 
 import legoeducation as le
 from lelib import colorSensor, controller
@@ -22,6 +24,8 @@ CONTROLLER_CARD_SERIAL = 7552
 
 POLL_DELAY_S = 0.1  # seconds between reads
 
+YELLOW_VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
 
 
 # --- Empty handler functions ----------------------------------------------
@@ -29,11 +33,31 @@ POLL_DELAY_S = 0.1  # seconds between reads
 
 def DoRed():
     print("red")
-    print("Shanmugam has done red; red is the color of his enemies")
+    print("Shanmugam has done red; red is the color of his enemies (from blood" \
+    ", not due to hair)")
 
 
 def DoYellow():
     print("yellow")
+
+    # Pop-up window with a button that opens the video in the browser.
+    # The window blocks the main loop until it's closed, so it won't spam
+    # new windows every poll while the sensor keeps seeing yellow.
+    root = tk.Tk()
+    root.title("Yellow detected!")
+    root.geometry("300x120")
+
+    tk.Label(root, text="You found yellow! Click for your reward:").pack(pady=10)
+
+    def open_video():
+        webbrowser.open(YELLOW_VIDEO_URL)
+        root.destroy()
+
+    tk.Button(root, text="Watch video", command=open_video).pack()
+
+    root.lift()
+    root.attributes("-topmost", True)
+    root.mainloop()
 
 
 
