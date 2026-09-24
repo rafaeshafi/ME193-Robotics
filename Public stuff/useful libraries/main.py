@@ -90,16 +90,19 @@ def DoBlue():
 
 def DoTeal():
     print("teal")
+    print("teal is the color of calm")
 
 
 
 def DoGreen():
     print("green")
+    print("green is the color of growth")
 
 
 
 def DoPurple():
     print("purple")
+    print("purple is the color of nobility")
 
 
 
