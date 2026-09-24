@@ -29,7 +29,7 @@ POLL_DELAY_S = 0.1  # seconds between reads
 
 def DoRed():
     print("red")
-
+    print("Shanmugam has done red; red is the color of his enemies")
 
 
 def DoYellow():
