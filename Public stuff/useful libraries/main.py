@@ -97,7 +97,13 @@ def DoNoColor():
 
 
 def DoUnknownColor():
-    pass
+    """Sensor read a color outside lelib's table: stop and say so.
+
+    Failing safe beats guessing -- an unreadable card almost always means
+    bad lighting or the sensor sitting too far off the surface.
+    """
+    print("unknown color -- stopping (check lighting / sensor height)")
+    robot.stop()
 
 
 
