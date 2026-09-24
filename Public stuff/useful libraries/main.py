@@ -88,7 +88,9 @@ def DoOrange():
 
 
 def DoAzure():
-    pass
+    """Azure: run forward at full speed."""
+    robot.set_speed(DASH_SPEED)
+    robot.run(DASH_SPEED)
 
 
 
