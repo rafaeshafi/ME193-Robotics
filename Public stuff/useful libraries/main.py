@@ -75,8 +75,15 @@ def DoMagenta():
 
 
 
+# Drive speeds for this block, as percentages. Positive runs forward.
+CREEP_SPEED = 30
+DASH_SPEED = 80
+
+
 def DoOrange():
-    pass
+    """Orange: creep forward, for lining the robot up by hand."""
+    robot.set_speed(CREEP_SPEED)
+    robot.run(CREEP_SPEED)
 
 
 
